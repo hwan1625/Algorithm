@@ -1,10 +1,4 @@
-let input = require("fs").readFileSync("/dev/stdin").toString().split("\n");
-let n = Number(input[0]);
-
-let items = [];
-for (let i = 0; i < n; i++) {
-	items[i] = Number(input[i + 1]);
-}
-
+let input = require("fs").readFileSync("/dev/stdin", "utf8");
+let [n, ...items] = input.trim().split("\n").map(x => Number(x));
 items.sort((a, b) => a - b);
 console.log(items.join("\n"));
