@@ -15,3 +15,25 @@ let [firstLine, ...data] = input.trim().split("\n").map(v => Number(v));
 let output = data.sort((a, b) => a - b);
 console.log(output.join("\n"));
 ```
+
+### Node.js readline 모듈 사용
+```
+function solution(input) {
+    console.log(input.join("\n"));
+}
+const readline = require("readline");
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout,
+});
+let input = [];
+rl.on("line", function(line) {
+    input.push(line)
+    //rl.close()가 없어서 계속 입력
+    //로컬에서 입력을 중지하려면 입력을 한 후 ctrl+d로 입력 종료
+}).on("close", function() {
+    let [n, ...items] = input;
+    solution(result);
+    process.exit();
+});
+```
